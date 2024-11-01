@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <title>Demo-container</title>
+  </head>
+  <body>
+    <button type="button" class="btn btn-primary">buttoon</button>
+    <button type="button" class="btn btn-danger">buttoon</button>
+    <button type="button" class="btn btn-info">buttoon</button>
+    <button type="button" class="btn btn-success">buttoon</button>
+    <button type="button" class="btn btn-dark">buttoon</button>
+    <button type="button" class="btn btn-light">buttoon</button>
+    <div class="btn-group" role="group" data-bs-toggle="buttons">
+      <label class="btn btn-primary me-2">
+        <input
+          type="checkbox"
+          class="me-2"
+          name="checkbox"
+          id=""
+          autocomplete="off"
+        />
+        Choice
+      </label>
+      <label class="btn btn-primary rounded-top-1 me-2">
+        <input
+          type="checkbox"
+          class="me-2"
+          name="checkbox"
+          id=""
+          autocomplete="off"
+        />
+        Choice
+      </label>
+      <label class="btn btn-primary me-2">
+        <input
+          type="checkbox"
+          class="me-2"
+          name="checkbox"
+          id=""
+          autocomplete="off"
+        />
+        Choice
+      </label>
+    </div>
+    <div class="btn-group" data-bs-toggle="buttons">
+      <label class="btn btn-success">
+        <input type="radio" name="gender" id="gender" autocomplete="off" />
+        Male
+      </label>
+      <label class="btn btn-success">
+        <input type="radio" name="gender" id="gender" autocomplete="off" />
+        Female
+      </label>
+      <label class="btn btn-success">
+        <input type="radio" name="gender" id="gender" autocomplete="off" />
+        Others
+      </label>
+    </div>
+
+    <script>
+      const checkBox = document.querySelectorAll(".btn-group .btn");
+      checkBox.forEach((item) => {
+        const input = item.querySelector("input");
+
+        if (!input.checked) {
+          item.classList.remove("active");
+        }
+
+        input.addEventListener("change", function () {
+          if (input.checked) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+      });
+    </script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
