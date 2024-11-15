@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Present Writer - Blog Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 col-12 bg-light p-4 min-vh-100">
+                <h4 class="text-center mb-4">Dashboard</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Quản lý Bài viết</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Quản lý Người dùng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cài đặt</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 col-12 p-4">
+                <div class="container">
+                    <h2 class="mb-4">Quản lý Blog</h2>
+                    <!-- Add New Post Button -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <a href="#" class="btn btn-primary">Thêm Bài Viết Mới</a>
+                        <form class="d-flex w-50">
+                            <input class="form-control" type="search" placeholder="Tìm kiếm bài viết" aria-label="Search">
+                            <button class="btn btn-outline-secondary" type="submit">Tìm</button>
+                        </form>
+                    </div>
+
+                    <!-- Blog Posts List -->
+                    <div class="row">
+                        <!-- Blog Post Card -->
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card">
+                                <img src="./assets/tai-sao-toi-ngung-viet.png" class="card-img-top" alt="Blog Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tại sao tôi ngừng viết & Tương lai The Present Writer</h5>
+                                    <p class="card-text">Đã khá lâu tôi không đăng bài viết mới trên blog...</p>
+                                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post Card -->
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card">
+                                <img src="./assets/THE-PRESENT-DAY-PLANER-.png" class="card-img-top" alt="Blog Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">The Present Day planner</h5>
+                                    <p class="card-text">Sau hơn 5 năm nghiên cứu, sáng tạo và thử nghiệm, The Present Day planner đã mở bán...</p>
+                                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post Card -->
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card">
+                                <img src="./assets/Thumbnail_Trich-dan.png" class="card-img-top" alt="Blog Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Academic Research 101</h5>
+                                    <p class="card-text">Đề bài đấy, giáo trình đấy, cứ lên mạng lấy thông tin thêm là viết được bài...</p>
+                                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Tiếp theo</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="fs-6 fw-bold text-center py-3 mt-5">
+        <p class="mb-0">Copyright &copy; 2024 The Present Writer</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
