@@ -59,7 +59,6 @@
     </div>
 </template>
 
-
 <script setup>
 import { ref } from "vue";
 
@@ -80,7 +79,6 @@ let isEditing = ref(false);
 let editingIndex = ref(null);
 
 function submitForm() {
-    // Thêm breakpoint để debug dễ dàng hơn
     debugger;
 
     if (isEditing.value) {
@@ -103,7 +101,7 @@ function editStudent(index) {
 }
 
 function deleteStudent(index) {
-    students.value.splice(index, 1); // Xoá phần tử tại index
+    students.value.splice(index, 1);
 }
 
 function resetForm() {
