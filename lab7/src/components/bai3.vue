@@ -61,7 +61,6 @@
                         <p>Chưa có thông tin đăng ký</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
