@@ -2,7 +2,10 @@
     <div class="col-lg-8">
       <!-- Featured blog post -->
       <div class="card mb-4">
-        <a href="./post.html"><img class="card-img-top" src="../assets/post1.jpg" alt="..." /></a>
+        <!-- <a href="./post.html"><img class="card-img-top" src="../assets/post1.jpg" alt="..." /></a> -->
+        <router-link to="/blog-detail" class="nav-link">
+            <img class="card-img-top" src="../assets/post1.jpg" alt="img" />
+        </router-link>
         <div class="card-body">
           <div class="small text-muted">Hôm qua</div>
           <h2 class="card-title">Người quanh mình #4: Mọi chuyện chắc sẽ ổn thôi?</h2>

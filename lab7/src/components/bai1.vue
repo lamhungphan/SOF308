@@ -4,7 +4,7 @@
         <form @submit.prevent="addList">
             <div class="mb-3">
                 <label class="form-label">Tên công việc</label>
-                <input type="text" class="form-control" v-model="newToDo" placeholder="Nhập tên công việc">
+                <input type="text" class="form-control" v-model.lazy="newToDo" placeholder="Nhập tên công việc" @blur="addList">
             </div>
             <button class="btn btn-success">Thêm công việc</button>
         </form>

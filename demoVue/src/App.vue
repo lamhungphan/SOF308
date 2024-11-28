@@ -1,17 +1,11 @@
-<script> // script setup không cần export
-import DataBinding from './components/DataBinding.vue';
-import Demo from './components/v-on2.vue';
-
-export default {
-  components: {
-    DataBinding,
-    Demo
-  }
-}
+<script setup>
+import Parent from './components/slide7/ParentComponent.vue';
 </script>
 
 <template>
-  <Demo />
+  <div>
+    <Parent />
+  </div>
 </template>
 
 <style></style>

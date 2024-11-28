@@ -37,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(stu, index) in students" :key="index">
+                        <tr v-for="(stu, index) in students" :key="index" @dblclick="deleteStudent(index)">
                             <td>{{ stu.name }}</td>
                             <td>{{ stu.score }}</td>
                             <td>{{ stu.dob }}</td>
@@ -47,9 +47,9 @@
                                 </button>
                             </td>
                             <td>
-                                <button class="btn btn-danger" @click="deleteStudent(index)">
+                                <!-- <button class="btn btn-danger" @click="deleteStudent(index)">
                                     Xoá
-                                </button>
+                                </button> -->
                             </td>
                         </tr>
                     </tbody>

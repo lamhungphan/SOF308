@@ -4,7 +4,7 @@ Trong Vuejs 3, có thể khai báo biến và phương thức trong component th
 ## Option API (truyền thống)
 **1. Khai báo biến (data)**
 Khai báo các biến trong phương thức data -> trả về object chứa các biến đã khai báo
-  ```vue
+  ```js
   export default {
     data () {
       return {
@@ -19,7 +19,7 @@ Khai báo các biến trong phương thức data -> trả về object chứa cá
   ```
 
   **2. Khai báo phương thức (methods)**
- ```vue
+ ```js
   export default {
     data () {
       return {
