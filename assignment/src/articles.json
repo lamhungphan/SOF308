@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "title": "Người quanh mình #4: Mọi chuyện chắc sẽ ổn thôi?",
+      "date": "Hôm qua",
+      "image": "../asset/post1.jpg",
+      "content": "Có lẽ, đến một lúc, khi chúng mình không còn xù lông chiến đấu với cuộc đời, cuộc đời cũng sẽ thôi chĩa súng về...",
+      "link": "/blog-detail"
+    },
+    {
+      "id": 2,
+      "title": "“NHÀ BÁC HỌC”, THIÊN TÀI VÀ TRÍ TƯỞNG TƯỢNG",
+      "date": "January 1, 2023",
+      "image": "../asset/post2.png",
+      "content": "Học bài xong, đêm đã về khuya. Tôi ngồi lướt và đọc lại trước khi đi ngủ, vô tình sao lại một đêm dài...",
+      "link": "#!"
+    },
+    {
+      "id": 3,
+      "title": "Ngu cũng là một loại khôn",
+      "date": "January 1, 2023",
+      "image": "../asset/post4.jpg",
+      "content": "Ngu hay khôn chỉ là tương đối. Ở hiền gặp lành nhưng ở hiền cũng gặp phiền.",
+      "link": "#!"
+    },
+    {
+      "id": 4,
+      "title": "Người thắng và kẻ thua sau khi Trump lên nắm quyền",
+      "date": "January 1, 2023",
+      "image": "../asset/post3.jpg",
+      "content": "Chọn phe là một nghệ thuật và điều quan trọng là phải theo đúng người, nhưng trong nhiều trường...",
+      "link": "#!"
+    },
+    {
+      "id": 5,
+      "title": "Cuốn “Tìm mình trong thế giới hậu tuổi thơ” đã 'động' đến mình thế nào?",
+      "date": "January 1, 2023",
+      "image": "../asset/blank.png",
+      "content": "Những câu chuyện, những lời kể từ chính các “nạn nhân”, lời trần thuật đầy trăn trở của một số phụ huynh của các...",
+      "link": "#!"
+    }
+  ]
+  

@@ -7,9 +7,6 @@ import AccountPage from "../views/Account.vue"
 import BlogPage from "../views/Blog.vue"
 import BlogDetail from "../views/BlogDetail.vue"
 
-
-
-
 const routes = [
   { path: "/", component: HomePage, name: "home" },
   { path: "/admin", component: AdminPage, name: "admin" },
@@ -17,8 +14,12 @@ const routes = [
   { path: "/register", component: RegisterPage, name: "register" },
   { path: "/account", component: AccountPage, name: "account" },
   { path: "/blog", component: BlogPage, name: "blog" },
-  { path: "/blog-detail", component: BlogDetail, name: "blog-detail" },
-
+  {
+    path: '/blog/:id',
+    name: 'BlogDetail',
+    component: BlogDetail,
+    props: true, // Truyền tham số dưới dạng props
+  },
 ];
 
 const router = createRouter({
