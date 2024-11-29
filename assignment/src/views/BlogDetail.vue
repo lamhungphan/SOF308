@@ -1,36 +1,36 @@
 <template>
-    <div>
-      <Navbar />
-      <div class="row">
-        <div class="col-lg-8">
-          <article v-if="article">
-            <!-- Tiêu đề bài viết -->
-            <header class="mb-4">
-              <h1 class="fw-bolder mb-1">{{ article.title }}</h1>
-              <div class="text-muted fst-italic mb-2">
-                {{ article.date }} - {{ article.author }}
-              </div>
-              <div>
-                <a v-for="category in article.categories" :key="category" class="badge bg-secondary text-decoration-none link-light" href="#!">
-                  {{ category }}
-                </a>
-              </div>
-            </header>
-            <!-- Hình ảnh -->
-            <figure class="mb-4">
-              <img class="img-fluid rounded" :src="article.image" alt="..." />
-            </figure>
-            <!-- Nội dung -->
-            <section class="mb-5">
-              <p class="fs-5 mb-4">{{ article.content }}</p>
-            </section>
-          </article>
-          <Comment />
-        </div>
+  <div>
+    <Navbar />
+    <div class="row">
+      <div class="col-lg-8">
+        <article v-if="article">
+          <!-- Tiêu đề bài viết -->
+          <header class="mb-4">
+            <h1 class="fw-bolder mb-1">{{ article.title }}</h1>
+            <div class="text-muted fst-italic mb-2">
+              {{ article.date }} - {{ article.author }}
+            </div>
+            <div>
+              <a v-for="category in article.categories" :key="category"
+                class="badge bg-secondary text-decoration-none link-light" href="#!">
+                {{ category }}
+              </a>
+            </div>
+          </header>
+          <!-- Hình ảnh -->
+          <figure class="mb-4">
+            <img class="img-fluid rounded" :src="article.image" alt="..." />
+          </figure>
+          <!-- Nội dung -->
+          <section class="mb-5">
+            <p class="fs-5 mb-4">{{ article.content }}</p>
+          </section>
+        </article>
+        <Comment />
       </div>
     </div>
-  </template>
-  
+  </div>
+</template>
 
 <script setup>
 import { ref, onMounted } from 'vue';

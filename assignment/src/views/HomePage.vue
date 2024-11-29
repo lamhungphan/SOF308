@@ -4,15 +4,10 @@
     <HeaderComponent />
     <div class="container">
       <div class="row">
-        <BlogListComponent />
+        <BlogListComponent :articles="articles" :currentPage="currentPage" :itemsPerPage="itemsPerPage" />
         <SidebarComponent />
-        <PaginationComponent
-          :totalItems="totalArticles" 
-          :itemsPerPage="10" 
-          :currentPage="currentPage" 
-          :visiblePageCount="7" 
-          @page-changed="handlePageChange"
-        />
+        <PaginationComponent :totalItems="totalArticles" :itemsPerPage="itemsPerPage" :currentPage="currentPage"
+          :visiblePageCount="7" @page-changed="handlePageChange" />
       </div>
     </div>
     <FooterComponent />
@@ -20,16 +15,36 @@
 </template>
 
 <script setup>
+import { ref, computed, onMounted } from "vue";
 import NavbarComponent from "../components/Navbar.vue";
 import HeaderComponent from "../components/Header.vue";
-import BlogListComponent from "../components/BlogList.vue";
+import BlogListComponent from "./BlogList.vue";
 import SidebarComponent from "../components/Sidebar.vue";
 import PaginationComponent from "../components/Pagination.vue";
 import FooterComponent from "../components/Footer.vue";
 
+// Quản lý trạng thái phân trang
+const currentPage = ref(1);
+const itemsPerPage = 10;
+const articles = ref([]);
 
+// Lấy dữ liệu bài viết khi trang được tải
+onMounted(() => {
+  fetch("/src/articles.json")
+    .then((response) => response.json())
+    .then((data) => {
+      articles.value = data;
+    })
+    .catch((error) => console.error("Error loading articles:", error));
+});
+
+// Tổng số bài viết
+const totalArticles = computed(() => articles.value.length);
+
+// Khi người dùng chuyển trang
+function handlePageChange(page) {
+  currentPage.value = page;
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
