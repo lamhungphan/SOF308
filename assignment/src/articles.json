@@ -1,43 +1,66 @@
 [
-    {
-      "id": 1,
-      "title": "Người quanh mình #4: Mọi chuyện chắc sẽ ổn thôi?",
-      "date": "Hôm qua",
-      "image": "../asset/post1.jpg",
-      "content": "Có lẽ, đến một lúc, khi chúng mình không còn xù lông chiến đấu với cuộc đời, cuộc đời cũng sẽ thôi chĩa súng về...",
-      "link": "#"
-    },
-    {
-      "id": 2,
-      "title": "“NHÀ BÁC HỌC”, THIÊN TÀI VÀ TRÍ TƯỞNG TƯỢNG",
-      "date": "January 1, 2023",
-      "image": "../asset/post2.png",
-      "content": "Học bài xong, đêm đã về khuya. Tôi ngồi lướt và đọc lại trước khi đi ngủ, vô tình sao lại một đêm dài...",
-      "link": "#!"
-    },
-    {
-      "id": 3,
-      "title": "Ngu cũng là một loại khôn",
-      "date": "January 1, 2023",
-      "image": "../asset/post4.jpg",
-      "content": "Ngu hay khôn chỉ là tương đối. Ở hiền gặp lành nhưng ở hiền cũng gặp phiền.",
-      "link": "#!"
-    },
-    {
-      "id": 4,
-      "title": "Người thắng và kẻ thua sau khi Trump lên nắm quyền",
-      "date": "January 1, 2023",
-      "image": "../asset/post3.jpg",
-      "content": "Chọn phe là một nghệ thuật và điều quan trọng là phải theo đúng người, nhưng trong nhiều trường...",
-      "link": "#!"
-    },
-    {
-      "id": 5,
-      "title": "Cuốn “Tìm mình trong thế giới hậu tuổi thơ” đã 'động' đến mình thế nào?",
-      "date": "January 1, 2023",
-      "image": "../asset/blank.png",
-      "content": "Những câu chuyện, những lời kể từ chính các “nạn nhân”, lời trần thuật đầy trăn trở của một số phụ huynh của các...",
-      "link": "#!"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "title": "Làm thế nào để tối ưu hoá việc phát triển bản thân?",
+    "date": "Hôm qua",
+    "image": "https://images.spiderum.com/sp-images/f351e4005b6b11ea8c76b9fb49dbc7f1.jpg",
+    "content": "Mình dám cá là 90% học sinh/sinh viên thì ai cũng ngán ngẩm và than phiền vì chuyện bài vở ở trường. Bản thân mình vẫn luôn tự hỏi, trường lớp thực chất là có vai trò gì trong sự phát triển cá nhân của một học sinh? Mình chỉ có vài ý niệm mơ hồ khi lần đầu đặt câu hỏi này vào năm lớp 10 và suốt quãng đường trung học sau đó, nhưng khi lên đại học thì mình tìm ra được một câu trả lời rõ ràng hơn rất nhiều. Mặc dù điểm số chỉ thuộc dạng bình thường đến xoàng, mình cực kỳ thích môi trường đại học, phải nói là siêu thoã mãn với từng ngày đến trường. Ngoài những yếu tố xã hội như kết được nhiều bạn mới và có nhóm bạn chung chí hướng, hay khuôn viên trường lẫn các giảng đường vừa to bự vừa đẹp lung linh, thì yếu tố kích thích mình nhất vẫn là cơ hội tiếp xúc với rất nhiều nguồn kiến thức vô tận và quan trọng nhất, được khám phá và học nhiều thứ mới, khó và thú vị hơn gấp trăm lần trung học",
+    "link": "https://spiderum.com/bai-dang/Lam-the-nao-de-toi-uu-hoa-viec-phat-trien-ban-than-lva"
+  },
+  {
+    "id": 2,
+    "title": "Niềm vui chóng tàn và Niềm vui vững bền",
+    "date": "January 1, 2023",
+    "image": "https://images.spiderum.com/sp-images/649f26f07dc211e9bea873f2915eaa34.jpg",
+    "content": "  ",
+    "link": "#!"
+  },
+  {
+    "id": 3,
+    "title": "Ngu cũng là một loại khôn",
+    "date": "January 1, 2023",
+    "image": "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F59fe3c6f-b58d-4cf2-b5ff-09a0c7f0446a_1060x530.jpeg",
+    "content": "Ngu hay khôn chỉ là tương đối. Ở hiền gặp lành nhưng ở hiền cũng gặp phiền. Gần đây tôi xem Mad Men, thì thấy nhân vật Roger trong đó thốt lên một câu khi bị các sếp trên mắng (tôi không nhớ chính xác hoàn cảnh của câu chuyện), đại loại là: I am being punished for making my job look too easy",
+    "link": "#!"
+  },
+  {
+    "id": 4,
+    "title": "Thu Nhập Trên 10.000 USD/tháng Ở Việt Nam Thì Sống Như Thế Nào?",
+    "date": "January 1, 2023",
+    "image": "https://images.spiderum.com/sp-images/5a081820549d11ea81b9bf97ca5e5fdb.jpg",
+    "content": "Không, không phải là mình mà là bạn gái mình. Thu nhập của cô ấy trong 1 năm qua lúc nào cũng 10.000 USD/tháng trở lên, trước đó chỉ được khoảng một nửa. Tụi mình hiện đang sống chung với nhau ở Việt Nam và thu nhập của mình thì khiêm tốn hơn, chỉ được khoảng 1/5 của bạn gái. Bạn gái mình làm chung với những người khác, họ là những người đã thành lập ra công ty và thu nhập của họ thì lúc nào cũng cao hơn, dao động từ 15.000 USD đến cao nhất là 30.000 USD mỗi tháng",
+    "link": "#!"
+  },
+  {
+    "id": 5,
+    "title": "Cuốn “Tìm mình trong thế giới hậu tuổi thơ” đã 'động' đến mình thế nào?",
+    "date": "January 1, 2023",
+    "image": "../asset/blank.png",
+    "content": "Những câu chuyện, những lời kể từ chính các “nạn nhân”, lời trần thuật đầy trăn trở của một số phụ huynh của các...",
+    "link": "#!"
+  },
+  {
+    "id": 6,
+    "title": "Những quy chiếu từ các tác phẩm khác trong Westworld",
+    "date": "3 tháng 1 2017",
+    "image": "../asset/blank.png",
+    "content": "Cá nhân mình cảm thấy TV series Westworld xứng đáng là một tác phẩm...",
+    "link": "https://spiderum.com/danh-muc/movie/6-minut-doc-20170103"
+  },
+  {
+    "id": 7,
+    "title": "CU LI KHÔNG BAO GIỜ KHÓC: MƯỢN CHUYỆN PHIM NÓI CHUYỆN MÌNH",
+    "date": "22 tháng 11 2023",
+    "image": "../asset/blank.png",
+    "content": "Một mình bao rạp ngày 20/11, đêm đã về khuya. Tôi ngồi lướt và đọc lại...",
+    "link": "https://spiderum.com/danh-muc/movie/10-phut-doc-20231122"
+  },
+  {
+    "id": 8,
+    "title": "[Stoicism] - Dịch Seneca (59): Về niềm hạnh phúc thực thụ",
+    "date": "30 tháng 8 2020",
+    "image": "../asset/blank.png",
+    "content": "Lời tựa: Như đã giới thiệu trong bài viết trước, Stoicism có thể giúp chúng ta sống hạnh phúc...",
+    "link": "https://spiderum.com/danh-muc/sach/20-phut-doc-20200830"
+  }
+]

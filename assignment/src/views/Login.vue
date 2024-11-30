@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper">
     <div class="logo">
-      <img src="../assets/Remove-bg.icon.png" alt="Logo" />
+      <a href="/">
+        <img src="../assets/Remove-bg.icon.png" alt="Logo" />
+      </a>
     </div>
     <div class="text-center mt-4 name">
       Spider-mem
@@ -18,13 +20,15 @@
       <button class="btn mt-3" type="submit">Đăng nhập</button>
     </form>
     <div class="text-center fs-6">
-      <a href="#">Quên mật khẩu?</a> hoặc <a href="#">Đăng ký</a>
+      <a href="#">Quên mật khẩu?</a> hoặc
+      <router-link to="/register" class="nav-link active">Đăng ký</router-link>
     </div>
-    <button @click="closeForm" class="btn btn-secondary mt-3">Đóng</button>
   </div>
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+
 export default {
   data() {
     return {
@@ -35,7 +39,11 @@ export default {
   methods: {
     handleLogin() {
       if (!this.username || !this.password) {
-        alert('Vui lòng nhập tên đăng nhập và mật khẩu!');
+        Swal.fire({
+          icon: 'warning',
+          title: 'Thiếu thông tin',
+          text: 'Vui lòng nhập đầy đủ thông tin!'
+        });
         return;
       }
 
@@ -49,12 +57,15 @@ export default {
           'loggedInUser',
           JSON.stringify({ username: user.username })
         );
-        alert('Đăng nhập thành công!');
-
         // Chuyển hướng sang trang chính
         this.$router.push({ name: 'home' });
       } else {
-        alert('Tên đăng nhập hoặc mật khẩu không đúng!');
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops',
+          text: 'Username hoặc mật khẩu không đúng!'
+        });
+        return;
       }
     }
   }

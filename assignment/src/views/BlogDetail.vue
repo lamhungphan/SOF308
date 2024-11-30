@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="container">
     <Navbar />
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-12">
         <article v-if="article">
           <!-- Tiêu đề bài viết -->
           <header class="mb-4">
@@ -18,11 +18,11 @@
             </div>
           </header>
           <!-- Hình ảnh -->
-          <figure class="mb-4">
-            <img class="img-fluid rounded" :src="article.image" alt="..." />
+          <figure class="mb-4 text-center">
+            <img class="img-fluid rounded" :src="article.image" alt="..." width="80%" />
           </figure>
           <!-- Nội dung -->
-          <section class="mb-5">
+          <section class="mb-5 container-fluid">
             <p class="fs-5 mb-4">{{ article.content }}</p>
           </section>
         </article>
@@ -35,7 +35,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import articles from '/src/articles.json'; // Đường dẫn đến file article.json
+import articles from '/src/articles.json'; 
 import Navbar from '../components/Navbar.vue';
 import Comment from '@/components/Comment.vue';
 

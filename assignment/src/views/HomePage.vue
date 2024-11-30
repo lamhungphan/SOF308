@@ -25,7 +25,7 @@ import FooterComponent from "../components/Footer.vue";
 
 // Quản lý trạng thái phân trang
 const currentPage = ref(1);
-const itemsPerPage = 10;
+const itemsPerPage = 4;
 const articles = ref([]);
 
 // Lấy dữ liệu bài viết khi trang được tải

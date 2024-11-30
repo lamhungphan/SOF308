@@ -19,12 +19,24 @@ const routes = [
     name: 'BlogDetail',
     component: BlogDetail,
     props: true, // Truyền tham số dưới dạng props
+    meta: {requiresAuth: true}
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+//Navigation Guard
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = false;
+
+  if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated){
+    next({name: 'login'});
+  } else {
+    next();
+  }
 });
 
 export default router;

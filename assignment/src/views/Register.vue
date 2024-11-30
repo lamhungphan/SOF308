@@ -1,77 +1,95 @@
 <template>
-    <div class="wrapper">
-      <div class="logo">
+  <div class="wrapper">
+    <div class="logo">
+      <a href="/">
         <img src="../assets/Remove-bg.icon.png" alt="Logo" />
-      </div>
-      <div class="text-center mt-4 name">Chào "đồng" nhện</div>
-      <form @submit.prevent="handleRegister" class="p-3 mt-3">
-        <!-- Trường nhập tên đăng nhập -->
-        <div class="form-field d-flex align-items-center">
-          <span class="far fa-user"></span>
-          <input type="text" v-model="username" placeholder="Username" />
-        </div>
-        <!-- Trường nhập mật khẩu -->
-        <div class="form-field d-flex align-items-center">
-          <span class="fas fa-key"></span>
-          <input type="password" v-model="password" placeholder="Password" />
-        </div>
-        <!-- Trường nhập lại mật khẩu -->
-        <div class="form-field d-flex align-items-center">
-          <span class="fas fa-key"></span>
-          <input type="password" v-model="confirmPassword" placeholder="Confirm Password" />
-        </div>
-        <!-- Nút đăng ký -->
-        <button class="btn mt-3" type="submit">Đăng ký</button>
-      </form>
-      <div class="text-center fs-6">
-        Đã có tài khoản? <a href="#" @click="switchToLogin">Đăng nhập</a>
-      </div>
-      <!-- Nút đóng form -->
-      <button @click="closeForm" class="btn btn-secondary mt-3">Đóng</button>
+      </a>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        username: '', // Lưu tên đăng nhập
-        password: '', // Lưu mật khẩu
-        confirmPassword: '' // Lưu mật khẩu nhập lại để xác nhận
-      };
-    },
-    methods: {
-      // Hàm xử lý đăng ký
-      handleRegister() {
-        // Kiểm tra dữ liệu hợp lệ
-        if (!this.username || !this.password || !this.confirmPassword) {
-          alert('Vui lòng nhập đầy đủ thông tin!');
-          return;
-        }
-  
-        if (this.password !== this.confirmPassword) {
-          alert('Mật khẩu không khớp!');
-          return;
-        }
-  
-        // Lưu thông tin người dùng vào localStorage
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        const userExists = users.some(user => user.username === this.username);
-  
-        if (userExists) {
-          alert('Tên đăng nhập đã tồn tại!');
-        } else {
-          users.push({ username: this.username, password: this.password });
-          localStorage.setItem('users', JSON.stringify(users));
-          alert('Đăng ký thành công!');
+    <div class="text-center mt-4 name">Chào "đồng" nhện</div>
+    <form @submit.prevent="handleRegister" class="p-3 mt-3">
+      <!-- Trường nhập tên đăng nhập -->
+      <div class="form-field d-flex align-items-center">
+        <span class="far fa-user"></span>
+        <input type="text" v-model="username" placeholder="Username" />
+      </div>
+      <!-- Trường nhập mật khẩu -->
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-key"></span>
+        <input type="password" v-model="password" placeholder="Password" />
+      </div>
+      <!-- Trường nhập lại mật khẩu -->
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-key"></span>
+        <input type="password" v-model="confirmPassword" placeholder="Confirm Password" />
+      </div>
+      <!-- Nút đăng ký -->
+      <button class="btn mt-3" type="submit">Đăng ký</button>
+    </form>
+    <div class="text-center fs-6">
+      Đã có tài khoản?<router-link to="/login" class="nav-link active">Đăng nhập</router-link>
+    </div>
+  </div>
+</template>
 
+<script>
+import Swal from 'sweetalert2';
+
+export default {
+  data() {
+    return {
+      username: '',
+      password: '',
+      confirmPassword: ''
+    };
+  },
+  methods: {
+    handleRegister() {
+      // Kiểm tra dữ liệu hợp lệ
+      if (!this.username || !this.password || !this.confirmPassword) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Thiếu thông tin',
+          text: 'Vui lòng nhập đầy đủ thông tin!'
+        });
+        return;
+      }
+
+      if (this.password !== this.confirmPassword) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi mật khẩu',
+          text: 'Mật khẩu không khớp!'
+        });
+        return;
+      }
+
+      // Lưu thông tin người dùng vào localStorage
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const userExists = users.some(user => user.username === this.username);
+
+      if (userExists) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Lỗi đăng ký',
+          text: 'Tên đăng nhập đã tồn tại!'
+        });
+      } else {
+        users.push({ username: this.username, password: this.password });
+        localStorage.setItem('users', JSON.stringify(users));
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Đăng ký thành công',
+          text: 'Tài khoản của bạn đã được tạo!'
+        }).then(() => {
           // Chuyển hướng sang trang đăng nhập
           this.$router.push({ name: 'login' });
-        }
+        });
       }
     }
-  };
-  </script>
+  }
+};
+</script>
 
 <style scoped>
 /* Importing fonts from Google */
