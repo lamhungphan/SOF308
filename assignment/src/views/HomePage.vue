@@ -45,6 +45,11 @@ const totalArticles = computed(() => articles.value.length);
 function handlePageChange(page) {
   currentPage.value = page;
 }
+
+function logout() {
+  localStorage.removeItem('loggedInUser');
+  this.$router.push({ name: 'login' });
+}
 </script>
 
 <style scoped></style>
