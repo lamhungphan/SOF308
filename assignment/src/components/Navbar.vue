@@ -33,7 +33,7 @@
 export default {
   data() {
     return {
-      isLoggedIn: false, // Trạng thái đăng nhập
+      isLoggedIn: false,
     };
   },
   methods: {

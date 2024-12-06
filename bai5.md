@@ -4,9 +4,9 @@
 Cơ chế tự động liên kết dữ liệu giữa App và UI
 
 ### One-way Data Binding
-- **Props**:
-  - Dữ liệu truyền từ component cha xuống component con qua `props` (luồng dữ liệu một chiều).
-  - Vue hỗ trợ xác thực `props` (kiểu dữ liệu, giá trị mặc định, bắt buộc) để đảm bảo tính nhất quán.
+#### `props`
+  - Dữ liệu truyền từ component cha xuống component con qua `props` (luồng dữ liệu một chiều)
+  - Vue hỗ trợ xác thực `props` (kiểu dữ liệu, giá trị mặc định, bắt buộc) để đảm bảo tính nhất quán
 ```js
   props: {
     title: {
@@ -20,7 +20,7 @@ Cơ chế tự động liên kết dữ liệu giữa App và UI
   }
 ```
 
-#### Có thể truyển các kiểu dữ liệu phức tạp như Mảng hoặc Đối tượng
+#### Có thể truyển các kiểu dữ liệu phức tạp như `Mảng` hoặc `Đối tượng`
 ```js
  const props = defineProps({
     propertyName: Array
@@ -33,7 +33,7 @@ Cơ chế tự động liên kết dữ liệu giữa App và UI
 ```
 
 ### Two-way Data Binding
-- **v-model**:
+#### `v-model`
   - Đồng bộ dữ liệu giữa **view** và **model**
   - Khi dữ liệu hoặc giao diện thay đổi, cả hai sẽ tự động được cập nhật
 ```html
@@ -60,7 +60,7 @@ export default {
 - Hàm khởi tạo được gọi trước khi component được tạo
 - Trả về dữ liệu hoặc logic để sử dụng trong template
 
-### ref & reactive
+### Reactivity System
 - **ref**:
   - Tạo đối tượng phản ứng cho giá trị cơ bản (số, chuỗi, Boolean)
   - Truy cập giá trị thực qua `.value`
@@ -69,7 +69,7 @@ export default {
   - Tự động cập nhật giao diện khi dữ liệu thay đổi
 
 ### computed
-- Tính toán các giá trị phụ thuộc vào reactive state, giúp tối ưu hiệu suất
+Tính toán các giá trị phụ thuộc vào reactive state, giúp tối ưu hiệu suất
 ```js
 const fullName = computed({
   get: () => `${user.firstName} ${user.lastName}`,
@@ -80,10 +80,11 @@ const fullName = computed({
   }
 });
 ```
+
 ### watch
-- Theo dõi reactive state và thực thi hành động khi dữ liệu thay đổi
+Theo dõi reactive state và thực thi hành động khi dữ liệu thay đổi
 ```js
-// Thực hiện API call mỗi khi từ khoá tìm kiếm thay đổi.
+// Thực hiện API call mỗi khi từ khoá tìm kiếm thay đổi
 watch(() => state.searchKey, async (newKey) => {
   const results = await fetchAPI(newKey);
   state.results = results;
@@ -91,27 +92,25 @@ watch(() => state.searchKey, async (newKey) => {
 ```
 
 ## 3. Reactivity System
+Vue.js sử dụng Proxy API để tạo ra các đối tượng phản ứng, cho phép theo dõi sự thay đổi trong dữ liệu và tự động cập nhật giao diện người dùng
 ### ref
 - Tạo reactive state cho dữ liệu đơn giản
 - Truy cập giá trị qua `.value`
-```js
-// khai báo
+```html
+<script>
 import {ref} from 'vue';
 
 export default {
   setup(){
     const count = ref(0); // count là 1 object, giá trị thực được lưu trữ trong thuộc tính .value
-    
     const increment = () => {
       count.value++;
     }
-
     return {count, increment}
   }
 };
-```
-```html
-<!-- sử dụng trong template-->
+</script>
+
 <template>
   <div>{{ count }}</div>
   <button> @click="increment">Increment</button>
@@ -129,14 +128,14 @@ const flag = ref(null);
 // Objects / Array
 // dùng ref nếu không cần phản ứng ở từng thuộc tính riêng lẻ
 const user = ref({name: 'Alice', age: 30});
-
 user.value.age = 31; // cập nhật giá trị thông qua .value
 ```
+
 ### reactive
 - Tạo reactive state cho Object hoặc Array
 - Vue theo dõi mọi thay đổi của thuộc tính bên trong và cập nhật giao diện tự động
-```js
-// khai báo
+```html
+<script>
 import {reactive} from 'vue';
 
 export default {
@@ -151,9 +150,8 @@ export default {
     return {state, increment}
   }
 }
-```
-```html
-<!-- sử dụng trong template-->
+</script>
+
 <template>
   <div>{{ count }}</div>
   <button> @click="increment">Increment</button>

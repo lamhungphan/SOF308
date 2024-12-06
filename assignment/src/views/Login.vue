@@ -20,7 +20,7 @@
       <button class="btn mt-3" type="submit">Đăng nhập</button>
     </form>
     <div class="text-center fs-6">
-      <a href="#">Quên mật khẩu?</a> hoặc
+      <a href="/">Trở lại trang chủ</a> hoặc
       <router-link to="/register" class="nav-link active">Đăng ký</router-link>
     </div>
   </div>

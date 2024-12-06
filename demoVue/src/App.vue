@@ -1,10 +1,10 @@
 <script setup>
-import Parent from './components/slide7/ParentComponent.vue';
+import { RouterView } from "vue-router";
 </script>
 
 <template>
   <div>
-    <Parent />
+    <RouterView />
   </div>
 </template>
 

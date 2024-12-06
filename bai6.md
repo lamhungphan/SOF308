@@ -50,6 +50,7 @@ export default {
 };
 </script>
 ```
+
 ### `v-else`
 Dùng để render một phần tử khi tất cả các điều kiện trước đó đều **false**.
 ```html
@@ -70,6 +71,7 @@ export default {
 };
 </script>
 ```
+
 ### `v-show`
 Dùng để hiển thị hoặc ẩn phần tử dựa trên điều kiện, nhưng phần tử vẫn tồn tại trong DOM và chỉ ẩn đi bằng cách sử dụng CSS `display: none`.
 ```html

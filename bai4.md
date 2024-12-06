@@ -60,6 +60,7 @@ Dùng để hiển thị dữ liệu dưới dạng HTML code (tương tự inne
 <tag v-bind:attributeName="data"></tag>
 <!-- attributeName  = tên attribute muốn binding-->
 ```
+
 ## JavaScript Expression
 Vue hỗ trợ các biểu thức JS liên kết trong tất cả các liên kết dữ liệu (binding)
 ```html 
@@ -73,7 +74,7 @@ Vue hỗ trợ các biểu thức JS liên kết trong tất cả các liên k�
 ```
 
 ## Directives
-- là các thuộc tính đặc biệt bắt đầu bằng prefix (tiền tố) **v-**
+- là các thuộc tính đặc biệt bắt đầu bằng prefix (tiền tố) **`v-`**
 - dùng đề áp dụng các cập nhật vào DOM khi giá trị biểu thức thay đổi
 - làm việc với view và thực hiện các nhiệm vụ lặp đi lặp lại 1 cách dễ dàng
 ### Các directive thông dụng

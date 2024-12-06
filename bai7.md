@@ -17,10 +17,9 @@
 ```
 
 #### Emit
-- Là cơ chế dùng để phát ra các sự kiện từ 1 component con để báo cho component cha  biết rằng 1 hành động đã xảy ra (như thay đổi dữ liệu hoặc gửi thông tin ngược lên)
+- Là cơ chế dùng để phát ra các sự kiện từ 1 component con để báo cho component cha biết rằng 1 hành động đã xảy ra (như thay đổi dữ liệu hoặc gửi thông tin ngược lên)
 - Đây là cách mà component con và cha có thể giao tiếp với nhau
-- Cách dùng: `emit` với **Composition API** và **script setup**
-Với script setup, dùng **defineEmits** (hàm trong Composition API) để khai báo các sự kiện mà component con có thể phát
+- Cách dùng `emit` với **script setup**: gọi `defineEmits` (hàm trong **Composition API**) để khai báo các sự kiện mà component con có thể phát
 ```html
 <!--Child-->
 <template>
@@ -50,8 +49,8 @@ Với script setup, dùng **defineEmits** (hàm trong Composition API) để kha
     }
 </script>
 ```
-Khi chạy App.vue chỉ cần import Parent
 ```html
+<!--Khi chạy App.vue chỉ cần import Parent-->
 <script setup>
     import Parent from './components/slide7/ParentComponent.vue';
 </script>
@@ -62,8 +61,9 @@ Khi chạy App.vue chỉ cần import Parent
   </div>
 </template>
 ```
+
 ### Method Handlers 
-Thông thường ở các bài toán thực tế thì code xử lý sự kiện sẽ không đơn giản là một dòng, mà nó sẽ rất phức tạp. Chính vì thế nên Vue.js cũng hỗ trợ chúng ta tách phần code xử lý vào hàm và gọi hàm đó ở trên sự kiện như javascript thuần
+Thông thường ở các bài toán thực tế, code xử lý sự kiện sẽ phức tạp, không đủ ở 1 dòng. Nên Vue.js hỗ trợ tách phần code xử lý vào hàm và gọi hàm đó ở trên sự kiện như javascript thuần
 ```html
 <template>
   <div>
@@ -80,7 +80,8 @@ Thông thường ở các bài toán thực tế thì code xử lý sự kiện 
 }
 </script>
 ```
-Truyền tham số
+
+#### Truyền tham số
 ```html
 <script setup>
     const handleClick = (message) => {
@@ -94,24 +95,27 @@ Truyền tham số
   </div>
 </template>
 ```
+
 ### Event modifiers
-Trong javascript thuần chúng ta thường sử dụng các event modifiles để tác động đến cách xử lý của sự kiện như: preventDefault(), stopPropagation(),... 
+Trong javascript thuần ta thường sử dụng các event modifiles để tác động đến cách xử lý của sự kiện như: preventDefault(), stopPropagation(),... 
 ```js
 formHandler(event) {
     event.preventDefault();
     // form handling logic
 }
 ```
-Những cách trên vẫn có thể sử dụng được đối với Vue.js, nhưng ngoài cách đó thì Vue.js còn hỗ trợ chúng ta khai báo ở directive bằng cách thêm chúng vào đằng sau directive và ngăn cách giữa chúng bằng dấu .
+
+Những cách trên vẫn có thể sử dụng được đối với Vue.js, nhưng ngoài ra Vue.js còn hỗ trợ khai báo ở directive bằng cách thêm chúng vào đằng sau directive và ngăn cách giữa chúng bằng dấu `.`
 ```html
 <form @submit.prevent="formHandler"></form>
 ```
+
 Vue cung cấp một số modifier sự kiện khác nhau hữu ích trong các tình huống xử lý sự kiện phổ biến
-**.stop**: Ngăn chặn sự kiện không tiếp tục truyền lên các phần tử cha trong DOM
-**.prevent**: Gọi event.preventDefault(), sử dụng để ngăn chặn hành vi của sự kiện
-**.capture**: Lắng nghe sự kiện ở giai đoạn capturing
-**.self**: Chỉ kích hoạt sự kiện với chính phần tử gán sự kiện đó
-**.once**: Chỉ kích hoạt sự kiện 1 lần
+- **.stop**: Ngăn chặn sự kiện không tiếp tục truyền lên các phần tử cha trong DOM
+- **.prevent**: Gọi event.preventDefault(), sử dụng để ngăn chặn hành vi của sự kiện
+- **.capture**: Lắng nghe sự kiện ở giai đoạn capturing
+- **.self**: Chỉ kích hoạt sự kiện với chính phần tử gán sự kiện đó
+- **.once**: Chỉ kích hoạt sự kiện 1 lần
 
 ### Key modifiers
 - Vue.js hỗ trợ khai báo sự kiện nhấn phím bằng cách thêm mã code của phím đó vào sau directive v-on:keyup và ngăn cách giữa chúng bời dấu **.**
@@ -120,6 +124,7 @@ Vue cung cấp một số modifier sự kiện khác nhau hữu ích trong các 
 v-on:event.keyCode="method" //eg: v-on:keyup.13="submit" 
 v-on:event.alias="method"   //eg: v-on:keyup.enter="submit"
 ```
+
 - Vue đã cung cấp alias (tên phím mà con người hiểu được) cho một số phím thông dụng
     - .enter
     - .delete
@@ -149,8 +154,8 @@ v-on:event.alias="method"   //eg: v-on:keyup.enter="submit"
 - Trường hợp một số phím chuyên biệt (phím hệ thống Ctrl, Alt, Shift, Meta và các nút ở trên chuột) sẽ có các modifier riêng
 - Những phím hệ thống này thường không được ấn một mình mà sẽ kết hợp thành một tổ hợp phím (đó là lí do vì sao nó trở nên đặc biệt)
 ```html
-<!-- Alt + C --> <input @keyup.alt.67="method"> 
-<!-- Ctrl + Click --> <div @click.ctrl="method">Ctrl click để chạy</div>
+<input @keyup.alt.67="method">                      <!-- Alt + C --> 
+<div @click.ctrl="method">Ctrl click để chạy</div>  <!-- Ctrl + Click --> 
 ```
 
 ### .exact Modifier
@@ -173,6 +178,7 @@ Sử dụng trong trường hợp cho phép kiểm soát sự kết hợp chính
 
 ## 2. Form Binding
 Là cách thức liên kết dữ liệu của một form HTML với dữ liệu trong component. VueJS cung cấp các directives như **v-model** để giúp việc liên kết này trở nên đơn giản và hiệu quả
+
 ### Text input
 ```html
 <template>
@@ -187,8 +193,8 @@ Là cách thức liên kết dữ liệu của một form HTML với dữ liệu
     import { ref } from 'vue';
     const name = ref('Liên');
 </script>
-
 ```
+
 ### Multiline text
 ```html
 <script setup>
@@ -202,6 +208,7 @@ Là cách thức liên kết dữ liệu của một form HTML với dữ liệu
     <textarea v-model="message" placeholder="Nội dung góp ý..."></textarea>
 </template>
 ```
+
 ### Checkbox
 ```html
 <template>
@@ -218,6 +225,7 @@ Là cách thức liên kết dữ liệu của một form HTML với dữ liệu
     const isChecked = ref(false);
 </script>
 ```
+
 ### Multiple Checkbox
 ```html
 <template>
@@ -233,8 +241,8 @@ Là cách thức liên kết dữ liệu của một form HTML với dữ liệu
     import { ref } from 'vue';
     const checkedNames = ref([]);
 </script>
-
 ```
+
 ### Select/Option
 ```html
 <template>
@@ -254,6 +262,7 @@ Là cách thức liên kết dữ liệu của một form HTML với dữ liệu
     const selectedFruit = ref('Apple');
 </script>
 ```
+
 ### Value Bindings
 Đối với các tùy chọn radio, checkbox và select option, các giá trị liên kết v-model thường là các chuỗi tĩnh (hoặc boolean cho checkbox)
 ```html
@@ -268,6 +277,7 @@ Là cách thức liên kết dữ liệu của một form HTML với dữ liệu
   <option value="abc">ABC</option>
 </select>
 ```
+
 Có thể tùy chỉnh các thuộc tính khác ngoài value như `checked`, `selected`, `innerHTML`, v.v., bằng cách sử dụng **`v-bind`** cùng với **`v-model`**
 ```html
 <template>
@@ -285,6 +295,7 @@ Có thể tùy chỉnh các thuộc tính khác ngoài value như `checked`, `se
     const placeholder = ref('Type something here...');
 </script>
 ```
+
 - **.lazy** Chỉ cập nhật giá trị sau khi sự kiện change được kích hoạt thay vì input
 - **.number** Chuyển đổi giá trị input thành kiểu số
 - **.trim** Tự động loại bỏ khoảng trắng ở đầu và cuối của chuỗi
@@ -295,6 +306,7 @@ Có thể tùy chỉnh các thuộc tính khác ngoài value như `checked`, `se
   <input v-model.trim="text" />
 </template>
 ```
+
 ### v-model với Component
 Khi sử dụng v-model với component tùy chỉnh, VueJS tự động thực hiện 2 bước:
 - **Bước 1**: Sử dụng `props` để nhận giá trị `modelValue`
