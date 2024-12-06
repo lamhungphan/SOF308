@@ -10,7 +10,7 @@ export default {
         return {
             content: "Yo, it's Hendrick here",
             className: 'text-red',
-            styleData: 'font-size: 5rem'
+            styleData: 'font-size: 2.5rem'
         }
     }
 }

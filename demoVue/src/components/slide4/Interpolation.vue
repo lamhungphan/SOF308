@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h1>Show message</h1>
-        <h2>{{ message }}</h2>
-        <h2>{{ number + 5 }}</h2>
-        <h2>{{ sayHi() }}</h2>
+        <p>Show message</p>
+        <p>{{ message }}</p>
+        <p>{{ number + 5 }}</p>
+        <p>{{ sayHi() }}</p>
     </div>
 </template>
 

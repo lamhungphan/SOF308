@@ -4,23 +4,98 @@
 Cơ chế tự động liên kết dữ liệu giữa App và UI
 
 ### One-way Data Binding
+#### `v-bind`
+```html
+<template>
+  <div>
+    <p>Name: <input type="text" :value="name"></p>
+    <a :href="url" class="btn">click me</a>
+  </div>
+</template>
+
+<script>
+export default {
+ data(){
+    return {
+        name: 'Vue',
+        url: 'https://www.google.com'
+    }
+ }
+}
+</script>
+```
+1. `:value="name"`
+- Dữ liệu từ component (model) truyền đến UI (view) -> 1-way
+- Dùng directive v-bind để liên kết thuộc tính `value` của ô input với giá trị `name` trong `data`
+Giá trị của `name` sẽ hiển thị trong ô input, nhưng thay đổi nội dung ô input không cập nhật lại giá trị `name` trong model
+
+2. `:href="url"`
+- v-bind được dùng để gắn giá trị của url vào thuộc tính href của thẻ `<a>`
+- Dữ liệu chỉ truyền một chiều từ url trong data đến thuộc tính href
+
 #### `props`
   - Dữ liệu truyền từ component cha xuống component con qua `props` (luồng dữ liệu một chiều)
   - Vue hỗ trợ xác thực `props` (kiểu dữ liệu, giá trị mặc định, bắt buộc) để đảm bảo tính nhất quán
-```js
+```html
+<!--ChildComponent-->
+<script>
+export default {
+  // Định nghĩa props nhận từ component cha
   props: {
     title: {
-      type: String,
-      required: true
+      type: String, // Kiểu String
+      required: true // Bắt buộc phải truyền
     },
-    content: {
-      type: String,
-      default: "Nội dung mặc định"
+    tags: {
+      type: Array, // Kiểu Mảng
+      default: () => [] // Giá trị mặc định là mảng rỗng
     }
   }
-```
+};
+</script>
 
-#### Có thể truyển các kiểu dữ liệu phức tạp như `Mảng` hoặc `Đối tượng`
+<template>
+  <div>
+    <h2>{{ title }}</h2> <!-- Hiển thị tiêu đề -->
+    <h3>Tags:</h3>
+    <ul>
+      <!-- Hiển thị danh sách tags -->
+      <li v-for="(tag, index) in tags" :key="index">{{ tag }}</li>
+    </ul>
+  </div>
+</template>
+```
+```html
+<!--ParentComponent-->
+<script>
+import ChildComponent from './ChildComponent.vue'; // Import component con
+
+export default {
+  components: { ChildComponent }, // Đăng ký component con
+  setup() {
+    const postTitle = 'Học Vue.js'; // Tiêu đề
+    const postTags = ['Vue', 'Props', 'Data Binding']; // Danh sách tag
+
+    return { postTitle, postTags };
+  }
+};
+</script>
+
+<template>
+  <div>
+    <h1>Parent Component</h1>
+    <!-- Truyền dữ liệu xuống component con -->
+    <ChildComponent :title="postTitle" :tags="postTags" />
+  </div>
+</template>
+```
+### ``Lưu ý``
+1. Luồng dữ liệu một chiều
+- Dữ liệu chỉ truyền từ cha xuống con qua props
+- Component con không được phép chỉnh sửa trực tiếp props
+2. Tái sử dụng
+- Component con có thể được sử dụng trong nhiều component cha với dữ liệu khác nhau
+3. Có thể truyển các kiểu dữ liệu phức tạp như `Mảng` hoặc `Đối tượng`
 ```js
  const props = defineProps({
     propertyName: Array
@@ -61,12 +136,6 @@ export default {
 - Trả về dữ liệu hoặc logic để sử dụng trong template
 
 ### Reactivity System
-- **ref**:
-  - Tạo đối tượng phản ứng cho giá trị cơ bản (số, chuỗi, Boolean)
-  - Truy cập giá trị thực qua `.value`
-- **reactive**:
-  - Biến object hoặc array thành đối tượng phản ứng
-  - Tự động cập nhật giao diện khi dữ liệu thay đổi
 
 ### computed
 Tính toán các giá trị phụ thuộc vào reactive state, giúp tối ưu hiệu suất
@@ -136,74 +205,156 @@ user.value.age = 31; // cập nhật giá trị thông qua .value
 - Vue theo dõi mọi thay đổi của thuộc tính bên trong và cập nhật giao diện tự động
 ```html
 <script>
-import {reactive} from 'vue';
+import { reactive } from 'vue';
 
 export default {
-  setup(){
-    const state = reactive({count: 0, user: {name: 'John', age: 25} });
+  setup() {
+    const state = reactive({ count: 0, user: { name: 'John', age: 25 } });
     // state là 1 object reactive
-    
+
     const increment = () => {
-      state.count++; 
+      state.count++;
     };
 
-    return {state, increment}
-  }
+    return { state, increment };
 }
 </script>
 
 <template>
-  <div>{{ count }}</div>
-  <button> @click="increment">Increment</button>
+  <div>
+    <div>{{ state.count }}</div>
+    <button @click="increment">Increment</button>
+  </div>
 </template>
 ```
 
 #### Nested Reactivity
-Vue sẽ làm cho toàn bộ object và các object con trở thành reactive
-```js
-const state = reactive({
-  user: {
-    name: 'Sunny',
-    address: {
-      city: 'New York'
-    }
-  }
-});
+Vue sẽ theo dõi và tự động cập nhật giao diện khi thay đổi bất kỳ thuộc tính nào trong đối tượng hoặc đối tượng con
+```html 
+<template>
+  <div>
+    <p>Name: {{ state.user.name }}</p>
+    <p>City: {{ state.user.address.city }}</p>
+    <button @click="changeCity">Change City</button>
+  </div>
+</template>
 
-state.user.address.city = 'Los Angeles' 
+<script>
+import { reactive } from 'vue';
+
+export default {
+  setup() {
+    const state = reactive({
+      user: {
+        name: 'Sunny',
+        address: {
+          city: 'New York'
+        }
+      }
+    });
+
+    // Thay đổi giá trị thành phố
+    const changeCity = () => {
+      state.user.address.city = 'Los Angeles';
+    };
+
+    return { state, changeCity };
+  }
+};
+</script>
 ```
+- Khi thay đổi `state.user.address.city`, Vue sẽ tự động cập nhật giá trị mới vào giao diện mà không cần gọi `setState` hoặc `this.$forceUpdate()`
+- `state.user.address.city` có thể thay đổi thành **'Los Angeles'**, và giao diện sẽ phản ánh ngay lập tức
 
 #### Reactive Arrays
-```js
-const items = reactive(['Apple', 'Banana']);
+```html
+<template>
+  <div>
+    <ul>
+      <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+    </ul>
+    <button @click="addItem">Add Orange</button>
+  </div>
+</template>
 
-items.push('Orange');
+<script>
+import { reactive } from 'vue';
+
+export default {
+  setup() {
+    const items = reactive(['Apple', 'Banana']);
+
+    // Thêm một phần tử vào mảng
+    const addItem = () => {
+      items.push('Orange');
+    };
+
+    return { items, addItem };
+  }
+};
+</script>
 ```
+- Mảng `items` là một reactive array, nên khi gọi `items.push('Orange')`, Vue sẽ tự động cập nhật giao diện để hiển thị phần tử mới
+- Mỗi lần thêm một phần tử mới vào mảng, giao diện sẽ tự động render lại các phần tử trong mảng
 
 #### Reactive với các thao tác trực tiếp trên Object/Array
-Có thể dùng các phương thức như push. splice, delete
-```js
-delete state.user.name; // Vue sẽ tự động cập nhật template nếu 'name' được sử dụng
+```html
+<template>
+  <div>
+    <p>{{ state.user.name }}</p>
+    <button @click="deleteName">Delete Name</button>
+  </div>
+</template>
+
+<script>
+import { reactive } from 'vue';
+
+export default {
+  setup() {
+    const state = reactive({
+      user: {
+        name: 'Sunny',
+        age: 25
+      }
+    });
+
+    // Xóa tên người dùng
+    const deleteName = () => {
+      delete state.user.name; // Vue sẽ tự động cập nhật giao diện
+    };
+
+    return { state, deleteName };
+  }
+};
+</script>
 ```
+- Khi gọi `delete state.user.name`, Vue sẽ tự động cập nhật giao diện nếu giá trị `name` được sử dụng trong template
+- Tương tự, các thao tác khác như `push`, `splice`, hay thay đổi giá trị của thuộc tính trong đối tượng đều được Vue tự động cập nhật
 
 ## 4. Class & Style Binding
-### v-bind
-Sử dụng để bind `class` hoặc `style` vào HTML:
-- **Class Binding**:
-  - **Object**: `{ active: true, disabled: false }`
-    - Thuận tiện khi class phụ thuộc vào nhiều điều kiện
-  - **Array**: `[ 'class1', 'class2' ]`
-    - Phù hợp với danh sách class cố định
+Có hai cách để binding class trong Vue
+## Class Binding
+#### Object Syntax
+Bind nhiều class dựa trên các điều kiện logic. Mỗi key là tên class và value là một điều kiện (boolean) để quyết định có áp dụng class hay không
 ```html
 <div :class="{ active: isActive, disabled: !isEnabled }"></div>
+```
+
+#### Array Syntax
+Phù hợp với class cố định hoặc động từ dữ liệu
+```html
 <div :class="['class1', dynamicClass]"></div>
 ```
-- **Style Binding**:
-  - **Object**: `{ color: 'red', fontSize: '14px' }`
-    - Thuận lợi để bind inline style từ logic 
-  - **Array**: `[style1, style2]`
-    - Dùng để kết hợp nhiều style object
+
+## Style Binding
+#### Object Syntax
+Bind nhiều thuộc tính style cho một phần tử. Mỗi key là tên thuộc tính CSS và value là giá trị của thuộc tính đó
 ```html
 <div :style="{ color: textColor, fontSize: fontSize + 'px' }"></div>
+```
+
+#### Array Syntax
+Kết hợp nhiều style object, giúp dễ dàng quản lý nhiều bộ style
+```html
 <div :style="[baseStyle, overrideStyle]"></div>
 ```

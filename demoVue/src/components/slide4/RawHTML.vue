@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 v-html="content"></h2>
+        <p v-html="content"></p>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
     data() {
         return {
-            content: "Yo, it's Hendrick here"
+            content: "this content was written by  v-html"
         }
     }
 }
