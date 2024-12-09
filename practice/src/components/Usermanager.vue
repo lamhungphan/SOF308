@@ -3,9 +3,9 @@
         <h3>Quản lý thông tin người dùng</h3>
 
         <div v-if="!isEditing">
-            <p><strong>Ten:  </strong>{{ user.name }}</p>
-            <p><strong>Tuoi:  </strong>{{ user.age }}</p>
-            <p><strong>Thanh pho:  </strong>{{ user.city }}</p>
+            <p><strong>Ten: </strong>{{ user.name }}</p>
+            <p><strong>Tuoi: </strong>{{ user.age }}</p>
+            <p><strong>Thanh pho: </strong>{{ user.city }}</p>
             <button @click="editUser">Edit</button>
         </div>
 
@@ -48,13 +48,13 @@ export default {
         const updateUser = () => {
             isEditing.value = false
         };
+        
         return {
             user,
             isEditing,
             editUser,
             updateUser
         }
-
     }
 }
 </script>

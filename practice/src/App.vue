@@ -1,10 +1,12 @@
 <script setup>
-import Demo from './components/UserList.vue'
+import DemoRef from './components/Counter.vue'
+import DemoConditionnal from './components/Usermanager.vue'
+import DemoCRUD from './components/UserList.vue'
 </script>
 
 <template>
   <div>
-    <Demo></Demo>
+    <DemoCRUD></DemoCRUD>
   </div>
 </template>
 
