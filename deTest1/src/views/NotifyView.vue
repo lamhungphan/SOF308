@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="input-group my-3 w-25">
-            <input type="text" placeholder="Nhập tên sinh viên để xóa" class="form-control" v-model="filter">
+            <input type="text" placeholder="Nhập tên sinh viên muốn gửi thông báo" class="form-control" v-model="filter">
             <button class="btn btn-info" @click.prevent="doFilter">Lọc</button>
         </div>
         <table class="table table-bordered">
