@@ -8,12 +8,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'entry',
-      component: EntryView,
+      component: EntryView
     },
     {
       path: '/giveback',
       name: 'giveback',
-      component: GiveBackView,
+      component: GiveBackView
     },
   ],
 })
