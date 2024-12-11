@@ -44,7 +44,8 @@ const displayStudents = ref([]);
 // Danh sách sinh viên sau khi được lọc
 function filterStudentsByName() {
     displayStudents.value = studentList.filter((student) =>
-    student.name.toLowerCase().includes(filterKeyword.value.toLowerCase())    );
+        student.name.toLowerCase().includes(filterKeyword.value.toLowerCase())
+    );
 }
 
 // Gửi thông báo khi bấm nút
